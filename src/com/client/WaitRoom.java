@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.table.*;
 public class WaitRoom extends JPanel implements ActionListener{ 
-	Image back; 							// 배경화면
+	Image back, img; 							// 배경화면, 마우스 그림
 	JTable table1, table2; 					// table1 : 방이름,공개/비공개,인원 올라갈 테이블   table2 : ID,대화명,위치 올라갈 테이블
 	DefaultTableModel model1, model2; 		// model1=table1 모델링 , model2=table2 모델링
 	JTextArea ta; 							// 채팅창
@@ -12,18 +12,19 @@ public class WaitRoom extends JPanel implements ActionListener{
 	JPanel movie;							// 오전강사님 소스따온거 대채할거 생기면 대체바람
 	JButton b1, b2, b3, b4, b5, b6, b7;		// 들어갈 버튼 선언부
 	
-    /*Cursor cursor;						// 커서 띄우는거 연습해봄
-    Image img;*/
+	Cursor cursor;
 	
 	public WaitRoom(){
-        /*Toolkit tk = Toolkit.getDefaultToolkit();
-        img = tk.getImage("C:\\image\\curser1.png");
-        Point point = new Point(0,0);
-        cursor = tk.createCustomCursor(img,point,"roman");
-        setCursor(cursor);*/				//커서 이미지 씌우는거 beta
-		
 		// Room information
 		back = Toolkit.getDefaultToolkit().getImage("image/back.png");
+		
+		// 마우스 그림 초기화
+		img=Toolkit.getDefaultToolkit().getImage("image/02.png");
+		cursor=Toolkit.getDefaultToolkit().createCustomCursor(img, new Point(0,0), "null");
+		this.setCursor(cursor);
+		
+		setLayout(null);
+				
 		String[] col1 = {"방이름", "공개/비공개", "인원"}; 		// table1 배열에 들어갈 내용 선언
 		String[] [] row1 = new String[0][3]; 			// table1 가로로3,세로로 1칸생성
 		model1 = new DefaultTableModel(row1, col1); 	// table1에 들어갈 내용을 model1으로 모음
@@ -68,7 +69,6 @@ public class WaitRoom extends JPanel implements ActionListener{
 		p.add(b6);
 		
 		// set location
-		setLayout(null);
 		js1.setBounds(10, 15, 500, 320);			// table1위치와 크기정해줌
 		js2.setBounds(515, 15, 265, 230);			// table2 위치와 크기정해줌
 		js3.setBounds(10, 340, 500, 180);			// 채팅창 위치및 크기잡아줌

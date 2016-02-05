@@ -3,10 +3,18 @@ import javax.swing.*;
 import java.awt.*;
 public class GameRule extends JPanel{
 	
-	Image back;
+	Image back, img;		//마우스 그림 추가
 	JButton b1;//버튼     
+	Cursor cursor;			//커서 추가
+	
+	
+	
 	public GameRule()
 	{	
+		//마우스 그림 초기화
+		img=Toolkit.getDefaultToolkit().getImage("image/01.png");
+		cursor=Toolkit.getDefaultToolkit().createCustomCursor(img, new Point(0,0), "null");
+		this.setCursor(cursor);
 
 		back = Toolkit.getDefaultToolkit().getImage("image/gr.png");
 	
@@ -28,3 +36,19 @@ public class GameRule extends JPanel{
 		g.drawImage(back, 0, 0, getWidth(), getHeight(), this);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

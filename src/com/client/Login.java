@@ -18,6 +18,9 @@ public class Login extends JPanel{
 	JPasswordField PWField;
 	JButton getNew,login;
 	
+	//마우스 커서 추가
+	Cursor cursor;
+	
 	public Login()
 	{
 		backImage=Toolkit.getDefaultToolkit().getImage("image/back.png");

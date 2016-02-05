@@ -10,8 +10,10 @@ public class MakeRoom extends JFrame implements ActionListener{
 	JPasswordField pf;
 	JComboBox box;
 	JButton b1, b2;
-	// {}
+
+	
 	public MakeRoom(){
+		
 		la1 = new JLabel("방이름");
 		la2 = new JLabel("상태");
 		la3 = new JLabel("비밀번호");

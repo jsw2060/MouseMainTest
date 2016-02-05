@@ -7,7 +7,7 @@ import javax.swing.text.Style;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyleContext;
 
-import com.client.MouseMain;
+//import com.client.MouseCursor;
 
 public class ClientMainForm extends JFrame implements ActionListener, MouseMotionListener, MouseListener{
 	CardLayout card = new CardLayout();
@@ -22,14 +22,14 @@ public class ClientMainForm extends JFrame implements ActionListener, MouseMotio
 	ChatRoom ch = new ChatRoom();
 	GameRule gr = new GameRule();
 	//TimerTest timer = new TimerTest();
-	MouseMain mouseMa = new MouseMain();		// 마우스 액션
+	
 	boolean b = false;
 	
 	
 	public ClientMainForm(){
 		setLayout(card);	// BoarderLayout => CardLayout
 		//add("ScoreCount", ScoreCount);
-		//add("Cursur", mouseMa);//마우스 액션 추가
+		//add("Cursur", mouseMa);//留덉슦�뒪 �븸�뀡 異붽�
 		add("LOG", login);
 		add("CH", ch);
 		add("LOADING", loading);
@@ -39,7 +39,7 @@ public class ClientMainForm extends JFrame implements ActionListener, MouseMotio
 		add("CR", cr);
 		add("GAMERULE", gr);
 		// 
-		setTitle("잡아라두더지");
+		setTitle("�옟�븘�씪�몢�뜑吏�");
 		setSize(800, 600);
 		setVisible(true);
 		setResizable(false);
@@ -59,21 +59,21 @@ public class ClientMainForm extends JFrame implements ActionListener, MouseMotio
 		addMouseMotionListener(this);
 		addMouseListener(this);
 		
-		setDefaultCloseOperation(EXIT_ON_CLOSE);//메모리 회수
+		setDefaultCloseOperation(EXIT_ON_CLOSE);//硫붾え由� �쉶�닔
 		
 	}
 	public static void main(String[] args) {
-		// 예외처리
+		// �삁�쇅泥섎━
 		try{
 			UIManager.setLookAndFeel("com.jtattoo.plaf.hifi.HiFiLookAndFeel");
 		}catch(Exception ex) {}
 		ClientMainForm cm = new ClientMainForm();
 		//new GetNewone();
 		
-		MouseMain mm = new MouseMain();		// 마우스 메인 객체 생성
+		//MouseCursor mm = new MouseCursor();		// 留덉슦�뒪 硫붿씤 媛앹껜 �깮�꽦
 	}
 	
-	// 패널바꾸기
+	// �뙣�꼸諛붽씀湲�
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
@@ -146,7 +146,7 @@ public class ClientMainForm extends JFrame implements ActionListener, MouseMotio
 		}
 	}
 	
-	// 마우스 이벤트
+	// 留덉슦�뒪 �씠踰ㅽ듃
 	
 	@Override
 	public void mouseDragged(MouseEvent e) {
@@ -155,12 +155,9 @@ public class ClientMainForm extends JFrame implements ActionListener, MouseMotio
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		// TODO Auto-generated method stub
-		mouseMa.x = e.getX()-60; 					// 마우스 X좌표값
-		mouseMa.y = e.getY()-120; 					// 마우스 Y좌표값
-		mouseMa.repaint();
 	}
 	
-	// 마우스 이벤트
+	// 留덉슦�뒪 �씠踰ㅽ듃
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -175,14 +172,12 @@ public class ClientMainForm extends JFrame implements ActionListener, MouseMotio
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
-		mouseMa.a=1;
-		mouseMa.repaint();
+
 	}
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
-		mouseMa.a=0;
-		mouseMa.repaint();
+
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {
